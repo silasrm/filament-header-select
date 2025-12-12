@@ -62,7 +62,7 @@ class HeaderSelectPlugin implements Plugin
 
         // Fixed top-center placement in the topbar end section for better positioning.
         $panel->renderHook(
-            PanelsRenderHook::TOPBAR_START,
+            config('filament-header-select.default_hook') ?? PanelsRenderHook::TOPBAR_START,
             fn (): string => view('filament-header-select::selects', [
                 'selects' => $this->selects,
             ])->render()
