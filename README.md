@@ -147,6 +147,26 @@ HeaderSelect::make('agents')
     })
 ```
 
+### Dynamic Options from User
+```php
+HeaderSelect::make('units')
+    ->label('Units')
+    ->onlyAuthenticated(true)
+    ->options(function() {
+        if (auth()->user()) {
+            return auth()->user()->units->pluck('razao_social', 'id')->toArray();
+        }
+
+        return [];
+    })
+    ->keepOriginalLabel(false)
+    ->refreshable(true)
+    ->color('info')
+    ->onChange(function ($value) {
+        return "/admin/agents/{$value}";
+    })
+```
+
 ## Troubleshooting
 
 **Rounded corners not working?**
