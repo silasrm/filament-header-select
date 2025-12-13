@@ -316,6 +316,7 @@
                     $value = session($name) ?? $select->getDefault();
                     $keepOriginalLabel = $select->shouldKeepOriginalLabel();
                     $refreshable = $select->isRefreshable();
+                    $onlyAuthenticated = $select->isOnlyAthenticated();
                     
                     // Check if this is a dropdown (has options) or URL link
                     $hasOptions = !empty($options);
@@ -336,6 +337,7 @@
                             'rounded' => $rounded,
                             'keepOriginalLabel' => $keepOriginalLabel,
                             'refreshable' => $refreshable,
+                            'onlyAuthenticated' => $onlyAuthenticated,
                         ],
                     ], key('header-select-'.$name))
                 @elseif ($hasUrl)

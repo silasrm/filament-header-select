@@ -27,6 +27,7 @@ class HeaderSelect implements Htmlable
     protected string $rounded = 'rounded-full'; // 'rounded-none', 'rounded', 'rounded-lg', 'rounded-full'
     protected bool $keepOriginalLabel = true; // Keep original label instead of showing selected value
     protected bool $refreshable = false; // Allow dynamic option updates
+    protected bool $onlyAuthenticated = false; // Only show for authenticated users
 
     public function __construct(string $name)
     {
@@ -122,6 +123,12 @@ class HeaderSelect implements Htmlable
         return $this;
     }
 
+    public function onlyAuthenticated(bool $onlyAuthenticated = true): static
+    {
+        $this->onlyAuthenticated = $onlyAuthenticated;
+        return $this;
+    }
+
     public function getName(): string
     {
         return $this->name;
@@ -198,6 +205,11 @@ class HeaderSelect implements Htmlable
     public function isRefreshable(): bool
     {
         return $this->refreshable;
+    }
+
+    public function isOnlyAthenticated(): bool
+    {
+        return $this->onlyAuthenticated;
     }
 
     public function handleChange(mixed $value): void
