@@ -2,7 +2,15 @@
 
 All notable changes to `filament-header-select` will be documented in this file.
 
-## v1.2.0 - 2025-09-03
+## v1.2.1 - 2025-12-13
+
+### Added
+- Add support to run only when user is authenticated
+
+### Changed
+- Update readme with example 
+
+## v1.2.0 - 2025-12-12
 
 ### Added
 - Add configuration of default hook
